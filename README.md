@@ -1,8 +1,16 @@
 # PivotalDemo
 
+step to Deploy on PCF
 
-cf login -a https://api.run.pivotal.io
+>cf login -a https://api.run.pivotal.io
 
-mvn clean install
+username: **********@gmail.com
+Pass:     **********
 
-cf push PivotalDemo -p PivotalDemo-0.0.1-SNAPSHOT.jar
+>mvn clean install
+
+>cd target
+
+>cf push PivotalDemo -p PivotalDemo-0.0.1-SNAPSHOT.jar
+
+>cf logs PivotalDemo --recent
