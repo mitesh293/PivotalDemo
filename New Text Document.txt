@@ -8,3 +8,8 @@
     <artifactId>kie-spring</artifactId>
     <version>7.0.0.Final</version>
 </dependency>
+
+
+
+
+https://www.baeldung.com/drools-spring-integration
