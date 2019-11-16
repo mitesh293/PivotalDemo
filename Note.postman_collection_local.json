@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "f3259f4f-af41-45d8-9f50-611ae2b41ff1",
+		"name": "Note",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Save",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"title\":\"My third note\",\"content\":\"spring boot demo 3\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/notes/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"notes",
+						""
+					]
+				},
+				"description": "create post"
+			},
+			"response": []
+		},
+		{
+			"name": "Select All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/notes/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"notes",
+						""
+					]
+				},
+				"description": "Get All"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Request",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"title\":\"My first note\",\"content\":\"spring boot demo update rows\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/notes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"notes",
+						"1"
+					]
+				},
+				"description": "update request"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/notes/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"notes",
+						"2"
+					]
+				},
+				"description": "delete note"
+			},
+			"response": []
+		}
+	]
+}

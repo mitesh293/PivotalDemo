@@ -1,5 +1,9 @@
 # PivotalDemo
 
+Swagger UI-local
+http://localhost:8080/swagger-ui.html
+
+
 step to Deploy on PCF
 
 >cf login -a https://api.run.pivotal.io
