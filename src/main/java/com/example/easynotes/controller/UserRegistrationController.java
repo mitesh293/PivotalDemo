@@ -3,10 +3,12 @@ package com.example.easynotes.controller;
 import com.example.easynotes.model.UserRegistrationModel;
 import com.example.easynotes.repository.UserRegistrationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -42,5 +44,14 @@ public class UserRegistrationController {
         // other statement
         userRegistrationRepository.save(userRegistrationModel);
         return ResponseEntity.ok().build();
+    }
+
+    @RequestMapping(value = "/validateLoginUser", method = RequestMethod.POST)
+    public ResponseEntity<?> validateLoginUser(@RequestBody UserRegistrationModel userRegistrationModel) {
+        System.out.println(userRegistrationModel.toString());
+        // other statement
+        Optional<UserRegistrationRepository>  userRegistration = userRegistrationRepository.validateLoginUser(userRegistrationModel.getFirstName(),userRegistrationModel.getPassword());
+
+        return userRegistration.isPresent() ? ResponseEntity.ok().build() : new ResponseEntity<String>("Unauthorized", HttpStatus.UNAUTHORIZED);
     }
 }
