@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public interface UserRegistrationRepository extends JpaRepository<UserRegistrationModel, Long> {
 
-    @Query("SELECT t FROM UserRegistrationModel t where lower(t.firstName) = :firstName AND t.password = :password")
+    @Query("SELECT t FROM UserRegistrationModel t where t.firstName = :firstName AND t.password = :password")
     public Optional<UserRegistrationRepository> validateLoginUser(@Param("firstName") String firstName,
                                                                           @Param("password") String password);
 
