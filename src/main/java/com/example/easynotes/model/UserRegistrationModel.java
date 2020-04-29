@@ -34,8 +34,8 @@ public class UserRegistrationModel {
     @NotBlank
     private String country;
 
-    @Column(length = 10000)
-    private String userImage;
+    @Transient
+    private UserImage userImage;
 
     public Long getId() {
         return id;
@@ -93,11 +93,11 @@ public class UserRegistrationModel {
         this.country = country;
     }
 
-    public String getUserImage() {
+    public UserImage getUserImage() {
         return userImage;
     }
 
-    public void setUserImage(String userImage) {
+    public void setUserImage(UserImage userImage) {
         this.userImage = userImage;
     }
 
@@ -111,7 +111,7 @@ public class UserRegistrationModel {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", country='" + country + '\'' +
-                ", userImage='" + userImage + '\'' +
+                ", userImage=" + userImage +
                 '}';
     }
 }
