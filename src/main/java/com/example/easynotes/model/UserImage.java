@@ -45,7 +45,7 @@ public class UserImage {
         return "UserImage{" +
                 "fileName='" + fileName + '\'' +
                 ", fileType='" + fileType + '\'' +
-                ", image=" + Arrays.toString(image) +
+                ", image=" + Arrays.toString(image).length() +
                 '}';
     }
 }
