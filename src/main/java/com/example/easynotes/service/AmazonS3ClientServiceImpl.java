@@ -26,11 +26,9 @@ public class AmazonS3ClientServiceImpl {
     Logger log = LoggerFactory.getLogger(this.getClass().getName());
 
     @Autowired
-    public AmazonS3ClientServiceImpl(Region awsRegion, AWSCredentialsProvider awsCredentialsProvider, String awsS3ImageBucket)
+    public AmazonS3ClientServiceImpl( String awsS3ImageBucket)
     {
-        this.amazonS3 = AmazonS3ClientBuilder.standard()
-                .withCredentials(awsCredentialsProvider)
-                .withRegion(awsRegion.getName()).build();
+        this.amazonS3 = AmazonS3ClientBuilder.standard().build();
         this.awsS3ImageBucket = awsS3ImageBucket;
     }
 
