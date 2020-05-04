@@ -1,6 +1,7 @@
 package com.example.easynotes.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -8,6 +9,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "user_registration")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserRegistrationModel {
 
     @Id
