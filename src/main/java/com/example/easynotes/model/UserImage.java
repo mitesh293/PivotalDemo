@@ -1,7 +1,10 @@
 package com.example.easynotes.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.Arrays;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserImage {
     private String fileName;
     private String fileType;

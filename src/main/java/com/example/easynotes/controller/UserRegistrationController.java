@@ -59,16 +59,6 @@ public class UserRegistrationController {
         return ResponseEntity.ok().build();
     }
 
-    @RequestMapping(value = "/validateLoginUser", method = RequestMethod.POST)
-    public ResponseEntity<?> validateLoginUser(@RequestBody LoginUserModel loginUserModel) {
-        System.out.println(loginUserModel.toString());
-        // other statement
-        Optional<UserRegistrationRepository>  userRegistration = userRegistrationRepository.validateLoginUser(loginUserModel.getUserName(),loginUserModel.getPassword());
-       /* HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.TEXT_PLAIN);*/
-        return userRegistration.isPresent() ? new ResponseEntity<String>("success", HttpStatus.OK) : new ResponseEntity<String>("Unauthorized to login", HttpStatus.UNAUTHORIZED);
-    }
-
     public void saveOrUpdate(UserRegistrationModel userRegistrationModel){
         System.out.println("Calling server side save "+userRegistrationModel.toString());
         // other statement

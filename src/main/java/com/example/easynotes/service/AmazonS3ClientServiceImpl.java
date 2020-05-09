@@ -38,6 +38,9 @@ public class AmazonS3ClientServiceImpl {
 
     public void uploadFileToS3Bucket(String name,byte[] content)  {
         try {
+            if (name.length() < 3) {
+                name+="AAA";
+            }
             File file = File.createTempFile(name,".jpg");
             FileOutputStream iofs = null;
             iofs = new FileOutputStream(file);

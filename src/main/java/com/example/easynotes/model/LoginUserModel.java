@@ -3,6 +3,8 @@ package com.example.easynotes.model;
 public class LoginUserModel {
     private String userName;
     private String password;
+    private byte[] image;
+    private String status;
 
     public LoginUserModel() {
     }
@@ -26,6 +28,22 @@ public class LoginUserModel {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
