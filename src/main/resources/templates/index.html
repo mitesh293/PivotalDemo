@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+</head>
+<body>
+Date picker: <input type="text" name="datetimes" style="width: 280px;"/>
+</body>
+<script>
+    $(function() {
+        $('input[name="datetimes"]').daterangepicker({
+            timePicker: true,
+            startDate: moment().startOf('day'),
+            endDate: moment(),
+            locale: {
+                format: 'DD/MM/YYYY hh:mm A'
+            }
+        });
+    });
+
+    $('input[name="datetimes"]').on('apply.daterangepicker', function(ev, picker) {
+        //$(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+        startDate=picker.startDate.format('YYYY-MM-DD HH:mm:ss') ;
+        endDate = picker.endDate.format('YYYY-MM-DD HH:mm:ss') ;
+
+        console.log("Date format before ajex call : startDate: "+startDate +" ,  endDate:"+endDate);
+
+        $.ajax({
+            url: "consumer/dashboard",
+            data: {
+                "startDate": startDate,
+                "endDate": endDate
+            },
+            cache: false,
+            type: "GET",
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(xhr) {
+
+            }
+        });
+    });
+</script>
+</html>
