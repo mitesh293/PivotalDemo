@@ -39,14 +39,19 @@ public class FileDownloadController {
 
     @GetMapping(value = "/pdfnew")
     @ResponseBody
-    public ResponseEntity<InputStreamResource> downloadPDFResourceNew(HttpServletResponse response) throws FileNotFoundException {
+    public ResponseEntity<InputStreamResource> downloadPDFResourceNew(HttpServletResponse response){
         String fileName = "sample_file.pdf";
         ClassLoader classLoader = getClass().getClassLoader();
 
         File file = new File(classLoader.getResource(fileName).getFile());
         System.out.println("file read ...");
         if (file.exists()) {
-            InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
+            InputStreamResource resource = null;
+            try {
+                resource = new InputStreamResource(new FileInputStream(file));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
             response.setContentType("application/pdf");
             response.setHeader("Content-Disposition", "attachment; filename=sample_file.pdf");
             System.out.println("file exist ...");
