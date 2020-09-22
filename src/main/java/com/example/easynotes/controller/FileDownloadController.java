@@ -53,11 +53,12 @@ public class FileDownloadController {
         ClassLoader classLoader = getClass().getClassLoader();
 
         File file = new File(classLoader.getResource(fileName).getFile());
-
+        System.out.println("file read ...");
         if (file.exists()) {
             InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
             response.setContentType("application/pdf");
             response.setHeader("Content-Disposition", "attachment; filename=sample_file.pdf");
+            System.out.println("file exist ...");
             return ResponseEntity.ok()
                     .header("Content-Disposition", "attachment; filename=" + "sample_file.pdf")
                     .contentLength(file.length())
