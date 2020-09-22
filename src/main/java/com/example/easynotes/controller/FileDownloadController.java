@@ -41,9 +41,9 @@ public class FileDownloadController {
     @ResponseBody
     public ResponseEntity<InputStreamResource> downloadPDFResourceNew(HttpServletResponse response){
         String fileName = "sample_file.pdf";
-        ClassLoader classLoader = getClass().getClassLoader();
+        //ClassLoader classLoader = getClass().getClassLoader();
 
-        File file = new File(classLoader.getResource(fileName).getFile());
+        File file = new File("/home/ec2-user/Projects/PivotalDemo/src/main/resources/"+fileName);
         System.out.println("file read ...");
         if (file.exists()) {
             InputStreamResource resource = null;
