@@ -8,10 +8,7 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletResponse;
@@ -20,16 +17,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-@Controller
+@RestController
 @RequestMapping("/download")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class FileDownloadController {
-    @Autowired
-    ApplicationContext applicationContext;
-
-    @Autowired
-    ResourceLoader resourceLoader;
-
    /* @GetMapping(value = "/pdf", produces = {"application/octet-stream"})
     @ResponseBody
     public FileSystemResource downloadPDFResource() {
