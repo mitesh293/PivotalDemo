@@ -4,9 +4,11 @@ import com.example.easynotes.model.ResponseObject;
 import org.springframework.boot.system.ApplicationTemp;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import springfox.documentation.annotations.ApiIgnore;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
+@ApiIgnore
 public class DateTestController {
 
     @RequestMapping(value={"/"}, method = RequestMethod.GET)
