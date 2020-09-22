@@ -50,7 +50,7 @@ public class FileDownloadController {
             try {
                 resource = new InputStreamResource(new FileInputStream(file));
             } catch (FileNotFoundException e) {
-                e.printStackTrace();
+                System.out.println(e.getMessage());
             }
             response.setContentType("application/pdf");
             response.setHeader("Content-Disposition", "attachment; filename=sample_file.pdf");
