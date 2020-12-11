@@ -2,6 +2,7 @@ package com.example.easynotes.controller;
 
 import com.example.easynotes.model.Note;
 import com.example.easynotes.repository.NoteRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
-@ApiIgnore
+@Slf4j
 public class NoteController {
 
     @Autowired
@@ -22,6 +23,7 @@ public class NoteController {
 
     @GetMapping("/notes")
     public List<Note> getAllNotes() {
+        log.trace("A TRACE Message");
         return noteRepository.findAll();
     }
 

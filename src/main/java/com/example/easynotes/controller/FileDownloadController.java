@@ -1,5 +1,6 @@
 package com.example.easynotes.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.FileSystemResource;
@@ -20,6 +21,7 @@ import java.io.InputStream;
 @RestController
 @RequestMapping("/download")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
+@Slf4j
 public class FileDownloadController {
    /* @GetMapping(value = "/pdf", produces = {"application/octet-stream"})
     @ResponseBody
@@ -52,6 +54,7 @@ public class FileDownloadController {
             } catch (FileNotFoundException e) {
                 System.out.println(e.getMessage());
             }
+            log.info("downloadPDFResourceNew() method called::");
             response.setContentType("application/pdf");
             response.setHeader("Content-Disposition", "attachment; filename=sample_file.pdf");
             System.out.println("file exist ...");

@@ -5,6 +5,7 @@ import com.example.easynotes.model.UserImage;
 import com.example.easynotes.model.UserRegistrationModel;
 import com.example.easynotes.repository.UserRegistrationRepository;
 import com.example.easynotes.service.AmazonS3ClientServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +21,12 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-@ApiIgnore
+@Slf4j
 public class UserRegistrationController {
     @Autowired
     UserRegistrationRepository userRegistrationRepository;
     @Autowired
     private AmazonS3ClientServiceImpl amazonS3ClientService;
-
-    Logger log = LoggerFactory.getLogger(this.getClass().getName());
 
     @RequestMapping( method = RequestMethod.GET,value = "/getAllUserRegister", produces = {"application/JSON"})
    public @ResponseBody
@@ -38,6 +37,7 @@ public class UserRegistrationController {
             if(userImageFromS3!= null)
                 userRegistrationModel.setUserImage(new UserImage(userRegistrationModel.getFirstName(),"image",userImageFromS3));
         }
+        log.info(" Logged getAllUserRegister()");
         return userRegistrationModelsList;
     }
 
